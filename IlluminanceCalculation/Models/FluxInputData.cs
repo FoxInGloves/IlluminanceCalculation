@@ -1,9 +1,15 @@
-﻿using System.ComponentModel;
-using IlluminanceCalculation.ViewModels;
+﻿namespace IlluminanceCalculation.Models;
 
-namespace IlluminanceCalculation.Models;
+public enum TotalReflection
+{
+    _70_50_30,
+    _70_30_10,
+    _50_50_30,
+    _50_30_10,
+    _30_10_10
+}
 
-public enum KssType
+public enum LuminousIntensityCurveType
 {
     M,
     D1,
@@ -16,44 +22,12 @@ public enum KssType
     K2
 }
 
-public enum TotalReflection
-{
-    _70_50_30,
-    _70_30_10,
-    _50_50_30,
-    _50_30_10,
-    _30_10_10
-}
-
-
-public readonly struct FluxInputData
-{
-    public readonly float Length;
-
-    public readonly float Width;
-
-    public readonly float Height;
-
-    public readonly float HeightWorkingSurface;
-
-    public readonly TotalReflection TotalReflection;
-
-    public readonly float NormalIllumination;
-
-    public readonly float ReserveCoefficient;
-
-    public readonly KssType TypeOfKss;
-
-    public FluxInputData(int length, int width, int height, float heightWorkingSurface, TotalReflection totalReflection,
-        int normalIllumination, float reserveCoefficient, KssType typeOfKss)
-    {
-        Length = length;
-        Width = width;
-        Height = height;
-        HeightWorkingSurface = heightWorkingSurface;
-        TotalReflection = totalReflection;
-        NormalIllumination = normalIllumination;
-        ReserveCoefficient = reserveCoefficient;
-        TypeOfKss = typeOfKss;
-    }
-}
+public readonly record struct FluxInputData(
+    int Length,
+    int Width,
+    int Height,
+    float HeightWorkingSurface,
+    int NormalIllumination,
+    float ReserveCoefficient,
+    TotalReflection TotalReflection,
+    LuminousIntensityCurveType TypeOfLuminousIntensityCurve);
