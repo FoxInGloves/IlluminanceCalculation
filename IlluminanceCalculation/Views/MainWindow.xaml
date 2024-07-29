@@ -78,7 +78,7 @@
                             Value="{Binding ReverseCoefficient}" />
                         <ComboBox ItemsSource="{infrastructure:EnumMarkupExtension {x:Type models:TotalReflection}}" SelectedItem="{Binding TotalReflection}" />
 
-                        <ComboBox ItemsSource="{infrastructure:EnumMarkupExtension {x:Type models:KssType}}" SelectedItem="{Binding TypeOfKss}" />
+                        <ComboBox ItemsSource="{infrastructure:EnumMarkupExtension {x:Type models:LuminousIntensityCurveType}}" SelectedItem="{Binding TypeOfLuminousIntensityCurve}" />
 
                     </StackPanel>
 

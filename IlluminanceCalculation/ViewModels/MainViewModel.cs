@@ -19,7 +19,7 @@ public sealed partial class MainViewModel : ObservableObject
     private int _height = 1;
 
     [ObservableProperty] 
-    private float _heightWorkingSurface ;
+    private float _heightWorkingSurface;
 
     [ObservableProperty]
     private int _normalIllumination = 1;
@@ -28,16 +28,16 @@ public sealed partial class MainViewModel : ObservableObject
     private float _reverseCoefficient = 1;
 
     [ObservableProperty] 
-    private KssType _typeOfKss = KssType.M;
-
-    [ObservableProperty] 
     private TotalReflection _totalReflection = TotalReflection._70_50_30;
+    
+    [ObservableProperty] 
+    private LuminousIntensityCurveType _typeOfLuminousIntensityCurve = LuminousIntensityCurveType.M;
 
     [ObservableProperty] 
-    private string _calculationResult;
+    private string? _calculationResult;
 
     [ObservableProperty] 
-    private string _output;
+    private string? _output;
 
     public MainViewModel(FluxCalculator fluxCalculator)
     {
@@ -47,8 +47,8 @@ public sealed partial class MainViewModel : ObservableObject
     [RelayCommand]
     private void Calculate()
     {
-        var data = new FluxInputData(Length, Width, Height, HeightWorkingSurface, TotalReflection, NormalIllumination,
-            ReverseCoefficient, TypeOfKss);
+        var data = new FluxInputData(Length, Width, Height, HeightWorkingSurface, NormalIllumination,
+            ReverseCoefficient, TotalReflection, TypeOfLuminousIntensityCurve);
         
         var result = _fluxCalculator.Calculate(data);
         

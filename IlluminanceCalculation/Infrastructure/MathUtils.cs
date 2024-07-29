@@ -4,23 +4,23 @@ public static class MathUtils
 {
     public static float Interpolate(float x, float[] xValues, float[] yValues)
     {
-        var lagrangePol = 0f;
+        var lagrangePolynomial = 0f;
 
         for (var i = 0; i < yValues.Length; i++)
         {
-            var basicsPol = 1f;
+            var basicsPolynomial = 1f;
             
             for (var j = 0; j < yValues.Length; j++)
             {
                 if (j == i) continue;
                     
-                basicsPol *= (x - xValues[j]) / (xValues[i] - xValues[j]);
+                basicsPolynomial *= (x - xValues[j]) / (xValues[i] - xValues[j]);
             }
 
-            lagrangePol += basicsPol * yValues[i];
+            lagrangePolynomial += basicsPolynomial * yValues[i];
         }
 
-        return lagrangePol;
+        return lagrangePolynomial;
     }
 
     public static float Extrapolate(float x,  float[] xValues, float[] yValues)

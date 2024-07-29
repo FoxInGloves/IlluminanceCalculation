@@ -17,7 +17,7 @@ public sealed class FluxCalculator
         
         var roomIndex = area / ((data.Height - data.HeightWorkingSurface) * (data.Length + data.Width));
 
-        var fluxUtilization = _utilizationTable.GetFluxUtilization(roomIndex, data.TotalReflection, data.TypeOfKss);
+        var fluxUtilization = _utilizationTable.GetFluxUtilization(roomIndex, data.TotalReflection, data.TypeOfLuminousIntensityCurve);
         
         var totalLuminous = 100 * data.NormalIllumination * area * 1.1f * data.ReserveCoefficient / fluxUtilization;
 
